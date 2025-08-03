@@ -26,7 +26,9 @@ Adds a user to the plugdev group
 Enables GDM
 
 Installs and enables PipeWire
+
 The installed applications are: nano, screen, pciutils, curl, wget, fastfetch, libreoffice-fresh-fr, dev-vcs/git, dev-lang/python, dev-util/htop
+
 Finally, it updates the system and reboots :)
 
 How to use
