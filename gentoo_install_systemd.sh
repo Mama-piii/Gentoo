@@ -44,7 +44,7 @@ CFLAGS="\${COMMON_FLAGS}"
 CXXFLAGS="\${COMMON_FLAGS}"
 FCFLAGS="\${COMMON_FLAGS}"
 FFLAGS="\${COMMON_FLAGS}"
-USE="X wayland bluetooth wifi udev systemd alsa pulseaudio dbus opengl gnome vulkan"
+USE="X wayland bluetooth wifi udev systemd alsa pulseaudio pipewire dbus opengl gnome vulkan cups avahi networkmanager gnome gnome-keyring"
 MAKEOPTS="-j12"
 LANG="fr_FR.UTF-8"
 LINGUAS="fr"
@@ -86,63 +86,63 @@ ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 eselect locale set $(eselect locale list | grep 'fr_FR.UTF-8' | awk '{print $1}')
-cat > /etc/env.d/02locale <<EOF
+chat > /etc/env.d/02locale <<EOF
 LANG="fr_FR.UTF-8"
 LC_COLLATE="C.UTF-8"
 EOF
-env-update && source /etc/profile
-cat > /etc/locale.conf <<EOF
+env-update && source/etc/profile
+chat > /etc/locale.conf <<EOF
 LANG=fr_FR.UTF-8
 LC_COLLATE=C.UTF-8
 EOF
 
-emerge --ask sys-kernel/linux-firmware sys-firmware/sof-firmware
-mkdir -p /etc/portage/package.use
+émerger --demander sys-kernel/linux-firmware sys-firmware/sof-firmware
+mkdir -p/etc/portage/package.use
 echo "sys-apps/systemd boot" > /etc/portage/package.use/systemd
-echo "sys-kernel/installkernel systemd-boot dracut" > /etc/portage/package.use/installkernel
+echo « sys-kernel/installkernel systemd-boot dracut » > /etc/portage/package.use/installkernel
 
-emerge --ask sys-apps/systemd sys-kernel/installkernel
+émerger --demander sys-apps/systemd sys-kernel/installkernel
 
 echo 'USE="${USE} dist-kernel"' >> /etc/portage/make.conf
-emerge --ask sys-kernel/gentoo-kernel-bin
-env-update && source /etc/profile
-emerge --ask @module-rebuild
-emerge --config sys-kernel/gentoo-kernel-bin
+émerger --demander sys-kernel/gentoo-kernel-bin
+env-update && source/etc/profile
+émerger --demander à @module-rebuild
+émerger --config sys-kernel/gentoo-kernel-bin
 
-cat > /etc/fstab <<EOF
-/dev/nvme0n1p2  /          btrfs   defaults,noatime,compress=zstd,space_cache=v2  0 1
-/dev/nvme0n1p1  /boot/efi  vfat    defaults                                     0 2
-/dev/nvme0n1p3  none       swap    sw                                           0 0
+chat > /etc/fstab <<EOF
+/dev/nvme0n1p2 / btrfs valeurs par défaut,noatime,compress=zstd,space_cache=v2 0 1
+/dev/nvme0n1p1/boot/efi vfat par défaut 0 2
+/dev/nvme0n1p3 aucun échange sw 0 0
 EOF
 
-hostnamectl hostname acer-gentoo
-emerge --ask net-misc/dhcpcd net-misc/networkmanager net-wireless/iw net-wireless/wpa_supplicant
-systemctl enable --now dhcpcd NetworkManager.service
+hostnamectl nom d'hôte acer-gentoo
+émerger --demander net-misc/dhcpcd net-misc/networkmanager net-wireless/iw net-wireless/wpa_supplicant
+systemctl enable --maintenant dhcpcd NetworkManager.service
 
-cat > /etc/hosts <<EOF
-127.0.0.1     acer-gentoo.local acer-gentoo localhost
-::1           acer-gentoo.local acer-gentoo localhost
+chat > /etc/hosts <<EOF
+127.0.0.1 acer-gentoo.local acer-gentoo localhost
+::1 acer-gentoo.local acer-gentoo localhost
 EOF
 
 echo "root:CHANGE_ME" | chpasswd
 
-useradd -m -G wheel,audio,video,network -s /bin/bash mahe
+useradd -m -G roue,audio,vidéo,réseau -s/bin/bash mahe
 echo "mahe:CHANGE_ME" | chpasswd
 
-emerge --ask app-admin/sudo
+émerger --demander à l'administrateur de l'application/sudo
 sed -i '/^# %wheel ALL=(ALL) ALL/s/^# //' /etc/sudoers
 
-systemd-machine-id-setup
+configuration de l'identifiant de la machine systemd
 
-emerge --ask app-shells/bash-completion net-misc/chrony sys-fs/btrfs-progs sys-block/io-scheduler-udev-rules
-systemctl enable chronyd.service
+émerger --demander app-shells/bash-completion net-misc/chrony sys-fs/btrfs-progs sys-block/io-scheduler-udev-rules
+systemctl actif chronyd.service
 
-bootctl install
-bootctl list
+installation de bootctl
+liste de débarquement
 
-echo "quiet splash" > /etc/kernel/cmdline
+echo "quite splash" > /etc/kernel/cmdline
 
-EOC
+COE
 
-echo "Installation Gentoo completed."
+écho « Installation de Gentoo terminale. »
 
