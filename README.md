@@ -15,3 +15,4 @@ a make.conf customized for my own setup on an Acer Aspire 3 15" with an AMD Ryze
 
 You can still report bugs — I might reply. Maybe.
 
+PS: Change the root password at line 129
