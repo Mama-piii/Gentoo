@@ -13,6 +13,30 @@ root (/) on Btrfs
 
 a make.conf customized for my own setup on an Acer Aspire 3 15" with an AMD Ryzen 5 5500U
 
+The post-installation script performs the following actions:
+
+Installs Flatpak and Gentoolkit
+
+Removes temporary files
+
+Installs GNOME and GDM
+
+Adds a user to the plugdev group
+
+Enables GDM
+
+Installs and enables PipeWire
+The installed applications are: nano, screen, pciutils, curl, wget, fastfetch, libreoffice-fresh-fr, dev-vcs/git, dev-lang/python, dev-util/htop
+Finally, it updates the system and reboots :)
+
+How to use
+1. Clone this repo  
+   `git clone https://github.com/Mama-piii/Gentoo.git`
+2. Make the script executable  
+   `chmod +x gentoo_install_systemd.sh`
+3. Run the script as root  
+   `sudo ./gentoo_install_systemd.sh`
+
 You can still report bugs — I might reply. Maybe.
 
 
