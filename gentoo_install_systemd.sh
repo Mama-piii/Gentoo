@@ -64,28 +64,28 @@ EOF
 emerge-webrsync
 emerge --ask --verbose --oneshot app-portage/mirrorselect
 mirrorselect -s5 -D -o > /etc/portage/make.conf
-emerge --sync
-eselect news list
-eselect news read
-eselect profile set default/linux/amd64/23.0/desktop/gnome/systemd
+émerger --synchroniser
+sélectionner la liste des actualités
+sélectionner les nouvelles lire
+définir le profil eselect par défaut/linux/amd64/23.0/desktop/gnome/systemd
 
-mkdir -p /etc/portage/binrepos.conf
-cat > /etc/portage/binrepos.conf/gentoobinhost.conf <<EOF
+mkdir -p/etc/portage/binrepos.conf
+chat > /etc/portage/binrepos.conf/gentoobinhost.conf <<EOF
 [binhost]
-priority = 9999
+priorité = 9999
 sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3/
 EOF
 
-emerge --ask --oneshot app-portage/cpuid2cpuflags
+émerger --demander --oneshot app-portage/cpuid2cpuflags
 echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/00cpu-flags
 
-emerge --ask --verbose --update --deep --newuse --getbinpkg @world
-emerge --ask --depclean
+émerger --demander --verbose --mettre à jour --profond --nouvelleutilisation --getbinpkg @world
+émerger --demander --dépnettoyer
 
-ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+ln -sf/usr/share/zoneinfo/Europe/Paris/etc/localtime
 echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-eselect locale set $(eselect locale list | grep 'fr_FR.UTF-8' | awk '{print $1}')
+gène local
+ensemble de paramètres régionaux eselect $(liste de paramètres régionaux eselect | grep 'fr_FR.UTF-8' | awk '{print $1}')
 chat > /etc/env.d/02locale <<EOF
 LANG="fr_FR.UTF-8"
 LC_COLLATE="C.UTF-8"
@@ -144,5 +144,5 @@ echo "quite splash" > /etc/kernel/cmdline
 
 COE
 
-écho « Installation de Gentoo terminale. »
+écho « Finish. »
 
