@@ -67,7 +67,7 @@ mirrorselect -s5 -D -o > /etc/portage/make.conf
 emerge --sync
 eselect news list
 eselect news read
-eselect profile set 6
+eselect profile set default/linux/amd64/23.0/desktop/gnome/systemd
 
 mkdir -p /etc/portage/binrepos.conf
 cat > /etc/portage/binrepos.conf/gentoobinhost.conf <<EOF
