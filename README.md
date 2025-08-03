@@ -1,18 +1,18 @@
-Hello, and welcome to my GitHub!
-Before using this script, please note that it was made for personal use only. It's not designed for anyone else, so I won’t be responsible for any issues that may happen.
+Bonjour et bienvenue sur mon GitHub !
+Avant d'utiliser ce script, voir noter qu'il a été reconnecté pour un personnel d'utilisation unique. Il n'est conçu pour personne d'autre, je ne serai donc pas responsable des problèmes qui pourraient survenir.
 
-This script installs a base Gentoo system with:
+Ce script installe un système gentil de base avec :
 
-systemd
+systémique
 
-systemd-boot
+démarrage du système
 
 gentoo-kernel-bin
 
-root (/) on Btrfs
+racine (/) sur Btrfs
 
-a make.conf customized for my own setup on an Acer Aspire 3 15" with an AMD Ryzen 5 5500U
+un make.conf personnalisé pour ma propre configuration sur un Acer Aspire 3 15" avec un AMD Ryzen 5 5500U
 
-You can still report bugs — I might reply. Maybe.
+Vous pouvez toujours signaler des bugs — je peux répondre. Peut-être.
 
-PS: Change the root password at line 129
+PS : Modifiez le mot de passe racine à la ligne 127
