@@ -13,6 +13,8 @@ root (/) on Btrfs
 
 a make.conf customized for my own setup on an Acer Aspire 3 15" with an AMD Ryzen 5 5500U
 
+Before running the script, make sure to partition your drive and adjust the script to match your disk.
+
 The post-installation script performs the following actions:
 
 Installs Flatpak and Gentoolkit
